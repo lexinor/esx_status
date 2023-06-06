@@ -69,11 +69,11 @@ AddEventHandler('esx_status:load', function(status)
 		while ESX.PlayerLoaded do
 			for i=1, #Status do
 				Status[i].onTick()
-				table.insert(data, {
+				data[Status[i].name] = {
 					name = Status[i].name,
 					val = Status[i].val,
 					percent = (Status[i].val / 1000000) * 100
-				})
+				}
 			end
 
 			if Config.Display then
